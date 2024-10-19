@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 const AttorneyPriceMapSchema = new mongoose.Schema({
   attorney: {
@@ -26,6 +26,8 @@ const AttorneyPriceMapSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-})
+}, {
+  timestamps: true
+});
 
-export default mongoose.model('AttorneyPriceMap', AttorneyPriceMapSchema)
+export default mongoose.models.AttorneyPriceMap || mongoose.model('AttorneyPriceMap', AttorneyPriceMapSchema);

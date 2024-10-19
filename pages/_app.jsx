@@ -1,19 +1,17 @@
-// MobX state management
-import { Provider as MobxProvider } from 'mobx-react'
-import mobxStore from '@/stores/AppStore'
-// Theme
+import { Provider } from 'mobx-react'
+import { createStore } from '@/stores/AppStore'
 import ThemeProvider from '@/stores/providers/ThemeProvider'
 
-// Global Styles
+const store = createStore()
 
-const App = ({ Component, pageProps }) => {
+function MyApp({ Component, pageProps }) {
   return (
-    <MobxProvider store={mobxStore}>
+    <Provider store={store}>
       <ThemeProvider>
         <Component {...pageProps} />
       </ThemeProvider>
-    </MobxProvider>
+    </Provider>
   )
 }
 
-export default App
+export default MyApp

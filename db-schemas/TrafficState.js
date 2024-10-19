@@ -17,4 +17,4 @@ const TrafficStateSchema = new mongoose.Schema({
   },
 })
 
-export default mongoose.model('TrafficState', TrafficStateSchema)
+export default mongoose.models.TrafficState || mongoose.model('TrafficState', TrafficStateSchema);

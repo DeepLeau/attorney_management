@@ -1,18 +1,21 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
+import '../db-schemas/Attorney';
+import '../db-schemas/AttorneyPriceMap';
+import '../db-schemas/TrafficCourt';
+import '../db-schemas/TrafficCounty';
+import '../db-schemas/Violation';
 
-const connection = {}
+let isConnected;
 
-async function dbConnect() {
-  if (connection.isConnected) {
-    return
+export default async function dbConnect() {
+  if (isConnected) {
+    return;
   }
 
   const db = await mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  })
+  });
 
-  connection.isConnected = db.connections[0].readyState
+  isConnected = db.connections[0].readyState;
 }
-
-export default dbConnect

@@ -1,5 +1,5 @@
 import dbConnect from '@/utils/dbConnect'
-import Attorney from '@/db-schemas/Attorney'
+import TrafficState from '@/db-schemas/TrafficState'
 
 export default async function handler(req, res) {
   const { method } = req
@@ -9,16 +9,16 @@ export default async function handler(req, res) {
   switch (method) {
     case 'GET':
       try {
-        const attorneys = await Attorney.find({})
-        res.status(200).json({ success: true, data: attorneys })
+        const trafficStates = await TrafficState.find({})
+        res.status(200).json({ success: true, data: trafficStates })
       } catch (error) {
         res.status(400).json({ success: false })
       }
       break
     case 'POST':
       try {
-        const attorney = await Attorney.create(req.body)
-        res.status(201).json({ success: true, data: attorney })
+        const trafficState = await TrafficState.create(req.body)
+        res.status(201).json({ success: true, data: trafficState })
       } catch (error) {
         res.status(400).json({ success: false })
       }

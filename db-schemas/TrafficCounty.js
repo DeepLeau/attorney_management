@@ -21,4 +21,4 @@ const TrafficCountySchema = new mongoose.Schema({
   },
 })
 
-export default mongoose.model('TrafficCounty', TrafficCountySchema)
+export default mongoose.models.TrafficCounty || mongoose.model('TrafficCounty', TrafficCountySchema);

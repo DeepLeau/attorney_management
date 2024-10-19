@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 const AttorneySchema = new mongoose.Schema({
   name: {
@@ -20,6 +20,6 @@ const AttorneySchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
-})
+});
 
-export default mongoose.model('Attorney', AttorneySchema)
+export default mongoose.models.Attorney || mongoose.model('Attorney', AttorneySchema);

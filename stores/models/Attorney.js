@@ -14,8 +14,8 @@ const Attorney = types
     createdAt: types.maybeNull(types.string),
     updatedAt: types.maybeNull(types.string),
     quoteOrder: types.maybeNull(types.number, 0),
-    banner: types.frozen({}), // image
-    avatar: types.frozen({}), // image
+    banner: types.frozen({}), 
+    avatar: types.frozen({}), 
   })
   .views((self) => ({}))
   .actions((self) => ({}))

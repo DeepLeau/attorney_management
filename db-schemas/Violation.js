@@ -12,4 +12,4 @@ const ViolationSchema = new mongoose.Schema({
   },
 })
 
-export default mongoose.model('Violation', ViolationSchema)
+export default mongoose.models.Violation || mongoose.model('Violation', ViolationSchema);

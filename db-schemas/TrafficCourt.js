@@ -29,4 +29,4 @@ const TrafficCourtSchema = new mongoose.Schema({
   },
 })
 
-export default mongoose.model('TrafficCourt', TrafficCourtSchema)
+export default mongoose.models.TrafficCourt || mongoose.model('TrafficCourt', TrafficCourtSchema);
