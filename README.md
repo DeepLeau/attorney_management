@@ -1,24 +1,32 @@
-# Attorney Price Management System
+# Attorney Price Management System ⚖️💰
 
-## Overview
+## Overview 🌟
 
-This project is a web application for managing attorneys and their related price maps per county/court/violation/points. The application is built using Next.js for the frontend, MobX for state management, and Mongoose for database interactions with MongoDB.
+The **Attorney Price Management System** is a comprehensive web application designed to streamline the management of attorneys and their associated pricing structures. This system allows users to efficiently handle attorney details, associate them with various pricing based on specific criteria, and perform essential operations to maintain accurate and up-to-date information.
 
-## Features
+### Key Features 🚀
 
-- Manage attorneys and their details.
-- Associate attorneys with different prices based on county, court, violation and points.
-- Perform CRUD operations on attorneys and prices.
-- Data persistence using MongoDB.
+- **Attorney Management:** Easily manage attorney profiles, including their contact information and relevant details.
+- **Dynamic Pricing:** Associate attorneys with different prices based on various factors such as county, court, violation, and points. This flexibility allows for tailored pricing strategies that can adapt to different legal scenarios.
+- **CRUD Operations:** Perform Create, Read, Update, and Delete operations on attorney profiles and their associated price maps, ensuring that all data is current and accurate.
+- **Data Persistence:** Utilize MongoDB for reliable data storage, ensuring that all information is securely saved and easily retrievable.
+- **User-Friendly Interface:** Built with Next.js, the application provides a responsive and intuitive user interface, making it easy for users to navigate and manage data effectively.
 
-## Getting Started
+## How It Works 🔧
 
-### Prerequisites
+The application is structured to allow users to:
+
+1. **Create and Manage Attorneys:** Users can add new attorneys, edit existing profiles, and delete attorneys as needed.
+2. **Set Up Pricing Maps:** Users can define pricing maps that link attorneys to specific prices based on various criteria, such as the type of violation or the court involved.
+3. **View and Edit Price Maps:** Users can view existing price maps, make necessary adjustments, and ensure that pricing reflects current legal standards and practices.
+4. **Data Retrieval:** The application fetches data from the backend API, ensuring that users always have access to the latest information.
+
+## Prerequisites 📋
 
 - Node.js (version 20.x or later)
-- MongoDB (local, remote instance or dockerized)
+- MongoDB (local, remote instance, or dockerized)
 
-### Installation
+## Installation 🛠️
 
 1. **Clone the repository:**
 
@@ -49,85 +57,16 @@ This project is a web application for managing attorneys and their related price
 
    The application will be available at `http://localhost:3000`.
 
-5. ## Instructions
+## Contributing 🤝
 
-### Completing the API
+Contributions are welcome! If you would like to contribute to this project, please follow these steps:
 
-1. **Define Mongoose Schemas:**
+1. Fork the project.
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Make your changes and commit them (`git commit -m 'Add some feature'`).
+4. Push your branch (`git push origin feature/YourFeature`).
+5. Open a Pull Request.
 
-   - Ensure all required schemas (`Attorney`, `AttorneyPrice`, `TrafficCourt`, `TrafficCounty`, and `Violation`) are defined in the `models` directory and feel free to add or modify attributes
+## License 📄
 
-2. **Set up API routes:**
-   - Complete the CRUD operations for each entity in the `pages/api` directory. Ensure that each API route handles requests to create, read, update, and delete records.
-   - Use `dbConnect.js` to establish a connection to MongoDB.
-
-### Writing React Components with Next.js
-
-1. **Create Components:**
-
-   - In the `pages` directory, create pages and components to display, create, and edit attorneys and their price maps.
-   - Use Next.js features like dynamic routing and API routes to interact with the backend.
-   - Some components will be written as classes, feel free to change to function components, if needed.
-
-2. **Use MobX for State Management:**
-   - Define MobX stores (using exclusively `mobx-state-tree` syntax) in the `stores` directory to manage the application state.
-   - Use the `attorneyStore` to manage attorney data and `attorneyPriceStore` to manage attorney price data.
-   - Fetch data from the API and update the stores accordingly.
-
-### Understanding Price Maps
-
-A price map can be either a combination of all the criteria (county, court, violation, and points) or partial criteria (one or more of them). For example, an attorney can have a price per points for a specific county and a specific price per points for a particular court. **The price is always calculated per points**.
-
-### JSON Price Map Example
-
-Below is an example of a JSON price map which shows a mix between a price per court/points, county/points, and violation/points:
-
-```json
-{
-  "attorneyId": "60c72b2f9b1e8b6a6c8b4567",
-  "prices": [
-    {
-      "courtId": "60c72b2f9b1e8b6a6c8b4568", // Court Name Queens Municipal Court
-      "pointsRange": [1, 4],
-      "price": 250
-    },
-    {
-      "courtId": "60c72b2f9b1e8b6a6c8b4568", // Court Name Queens Municipal Court
-      "pointsRange": [5, 12],
-      "price": 350
-    },
-    {
-      "countyId": "60c72b2f9b1e8b6a6c8b4569", // New York
-      "pointsRange": [1, 7],
-      "price": 150
-    },
-    {
-      "countyId": "60c72b2f9b1e8b6a6c8b4569", // New York
-      "pointsRange": [7, 12],
-      "price": 150
-    },
-    {
-      "violationId": "60c72b2f9b1e8b6a6c8b456a", // IMPROPER PASSING
-      "price": 290
-    },
-    {
-      "violationId": "60c72b2f9b1e8b6a6c8b456a", // DRIVING ON SHOULDER
-      "price": 380
-    },
-    {
-      "violationId": "60c72b2f9b1e8b6a6c8b456a", // NO SEAT BELT (MINOR)
-      "price": 500
-    }
-  ]
-}
-```
-
-### Design Patterns
-
-Feel free to incorporate design patterns into the modelization of this system like factories, observers, singletons...
-Using design patterns can improve the code's readability, maintainability, and scalability.
-
-### Additional Steps
-
-- Write tests: Ensure your code is covered by integration tests (optional)
-- Add styling: Use @mui/material for components styling (mandatory)
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
